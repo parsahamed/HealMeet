@@ -1,0 +1,24 @@
+{
+  "name": "healmeat",
+  "version": "1.0.0",
+  "description": "Management of meeting for therapists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parsahamed/HealMeet.git"
+  },
+  "keywords": [
+    "Meet",
+    "Managment",
+    "Clinic"
+  ],
+  "author": "Hamed Parsa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parsahamed/HealMeet/issues"
+  },
+  "homepage": "https://github.com/parsahamed/HealMeet#readme"
+}
