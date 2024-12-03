@@ -1,46 +1,109 @@
-# Getting Started with Create React App
+# HealMeet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**HealMeet** is a full-stack web application designed to help therapists and their clients manage therapy sessions, bookings, and payments. It provides an intuitive interface for clients to book sessions with therapists and for admins to manage users and session data. Built with **React** on the frontend and **NestJS** with a microservice architecture on the backend, HealMeet is a scalable and flexible solution for therapy practice management.
 
-## Available Scripts
+This project serves as a showcase of my full-stack development abilities and can be deployed for real-world use.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Project Structure**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is organized as a monorepo, with both the frontend and backend in a single repository. The backend follows a **microservice architecture** using **NestJS**, and the frontend is built with **React**.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### **Frontend**  
+The frontend uses **React** and **TypeScript**, with a custom design system using **pure CSS**.
 
-### `npm test`
+### **Backend**  
+The backend is built with **NestJS**, utilizing a **microservice** approach. The services include:
+- **Authentication service**
+- **Session management service**
+- **Payment processing service**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Folder Structure**  
+healmeet/ ├── frontend/ # React application │ ├── src/ │ │ ├── components/ # Reusable UI components │ │ ├── pages/ # Page-level components │ │ ├── features/ # Core features like auth, booking │ │ ├── styles/ # CSS and design system files │ │ └── App.tsx # Main React app component ├── backend/ # Backend microservices │ ├── auth-service/ # Microservice for authentication │ ├── session-service/ # Microservice for session management │ ├── payment-service/ # Microservice for payment uploads │ └── shared/ # Shared utilities, DTOs, etc. ├── docker-compose.yml # Containerized development environment ├── README.md # Project documentation └── package.json # Shared dependencies for both frontend and backend
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **Technologies Used**
 
-### `npm run eject`
+- **Frontend**:  
+  - React.js  
+  - TypeScript  
+  - Pure CSS (Custom Design System)  
+  - Redux (for state management)  
+  - React Router (for navigation)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Backend**:  
+  - NestJS (with microservice architecture)  
+  - TypeORM (for database interaction with PostgreSQL)  
+  - JWT (for authentication)  
+  - Docker (for containerized services)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Database**:  
+  - PostgreSQL for relational data
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## **Installation & Setup**
 
-## Learn More
+To get started with the project, follow these steps to set up both the frontend and backend:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/yourusername/healmeet.git
+cd healmeet
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **2. Install Frontend Dependencies**
+Navigate to the `frontend` directory and install the dependencies:
+```bash
+cd frontend
+npm install
+
+### 3. Install Backend Dependencies
+Navigate to the `backend` directory and install the dependencies:
+
+```bash
+cd backend
+npm install
+
+### 4. Docker Setup
+This project uses Docker to containerize both the frontend and backend services. To start all services using Docker Compose:
+
+```bash
+docker-compose up --build
+
+### 5. Run the Application Locally
+
+- **Frontend**:  
+  The React app will run at `http://localhost:3000`.
+
+- **Backend**:  
+  Each microservice will run on different ports (e.g., Auth service on `http://localhost:4001`, Session service on `http://localhost:4002`, Payment service on `http://localhost:4003`).
+
+---
+
+## Next Steps
+
+This project is in its early stages, and the initial goal is to complete the **authentication module**, which will include:  
+- Login and registration for admins, therapists, and clients.  
+- JWT-based authentication for secure API communication.  
+- Role-based access control to manage access for different users (admin, therapist, client).
+
+Subsequent milestones will include:  
+- **Admin Dashboard**: Managing users, therapists, and session types.  
+- **Client Features**: Booking sessions, viewing session details, and uploading payment receipts.
+
+---
+
+## Contributing
+
+Contributions to the HealMeet project are welcome! If you have suggestions, improvements, or bug fixes, feel free to open an issue or submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
