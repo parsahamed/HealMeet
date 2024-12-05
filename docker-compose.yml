@@ -1,5 +1,6 @@
 version: '3.9'
 services:
+  # PostgreSQL Database for Authentication Service
   auth-db:
     image: postgres:latest
     container_name: auth-db
@@ -11,6 +12,31 @@ services:
       - "5432:5432"
     volumes:
       - auth_db_data:/var/lib/postgresql/data
+
+  # Authentication Service
+  auth-service:
+    build:
+      context: ./backend/auth-service
+    container_name: auth-service
+    ports:
+      - "4001:4001"
+    depends_on:
+      - auth-db
+    environment:
+      DATABASE_URL: postgresql://auth_user:auth_password@auth-db:5432/auth_db
+      FRONTEND_URL: http://localhost:3000
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - auth-service
+    environment:
+      REACT_APP_API_URL: http://localhost:4001/api/auth
 
 volumes:
   auth_db_data:
