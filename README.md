@@ -6,6 +6,14 @@ This project serves as a showcase of my full-stack development abilities and can
 
 ---
 
+ Medium Articles
+
+Follow the journey of building HealMeet through these detailed Medium posts:
+
+1. [Building HealMeet (A Therapist-Client Management App with React) - Part 1: Setup](https://medium.com/@parsa.hmd/building-healmeet-a-therapist-client-management-app-with-react-part-1-7be27aaf1376)
+2. [Part 2: Setting Up Database and ORM](https://medium.com/@parsa.hmd/building-healmeet-a-therapist-client-management-app-with-react-4723199074ea)
+3. [Part 3: Implementing Authentication](https://medium.com/@parsa.hmd/building-healmeet-a-therapist-client-management-app-with-react-712ce102f790)
+
 ## **Project Structure**
 
 This project is organized as a monorepo, with both the frontend and backend in a single repository. The backend follows a **microservice architecture** using **NestJS**, and the frontend is built with **React**.
