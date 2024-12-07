@@ -10,7 +10,7 @@ RUN npm install
 
 # Add environment variables
 ARG REACT_APP_API_URL
-ENV REACT_APP_API_URL=${REACT_APP_API_URL}
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
 # Copy the application code
 COPY . .
@@ -21,6 +21,7 @@ RUN npm run build
 # Use Nginx to serve the app
 FROM nginx:alpine
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose the default Nginx port
 EXPOSE 80

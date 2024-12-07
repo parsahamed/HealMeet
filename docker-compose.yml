@@ -19,24 +19,25 @@ services:
       context: ./backend/auth-service
     container_name: auth-service
     ports:
-      - "4001:4001"
+      - "5081:5081"
     depends_on:
       - auth-db
     environment:
       DATABASE_URL: postgresql://auth_user:auth_password@auth-db:5432/auth_db
-      FRONTEND_URL: http://localhost:3000
+      FRONTEND_URL: http://localhost:5080
+      PORT: 5081
 
   # Frontend Service
   frontend:
     build:
       context: ./frontend
+      args:
+        REACT_APP_API_URL: http://localhost:5081/auth
     container_name: frontend
     ports:
-      - "3000:80"
+      - "5080:80"
     depends_on:
       - auth-service
-    environment:
-      REACT_APP_API_URL: http://localhost:4001/api/auth
 
 volumes:
   auth_db_data:

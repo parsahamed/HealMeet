@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
@@ -8,11 +9,11 @@ async function main() {
   });
 
   if (!existingAdmin) {
+    const hashedPassword = await bcrypt.hash('admin123', 10);
     await prisma.user.create({
       data: {
         email: 'admin@healmeet.com',
-        password:
-          '$2b$10$GHh8.Dv8VJYEUEO0zc0rH.RGrPFHWBg0G9aFjhXD2hLqAUAesVWC2',
+        password: hashedPassword,
         role: 'admin',
         isVerified: true,
       },

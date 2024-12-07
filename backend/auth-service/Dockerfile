@@ -1,21 +1,21 @@
 # Use Node.js as the base image
-FROM node:18
+FROM node:alpine
 
 # Set the working directory
 WORKDIR /usr/src/app
 
 # Copy package.json and install dependencies
 COPY package.json ./
-RUN npm install
-
-
+COPY tsconfig.json ./
 # Copy the application code
-COPY . .
+COPY src ./src
+COPY prisma ./prisma
+RUN npm install
 
 RUN npm run build
 
 # Expose the port the app runs on
-EXPOSE 4001
+EXPOSE 4081
 
 # Run seed script before starting the service
-CMD ["sh", "-c", "npm run seed && npm run start:dev"]
+CMD ["sh", "-c", "npm run migrate && npm run seed && npm run start:dev"]
