@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { login } from '../authService';
+import { Button, Flex, Form, Input, Text } from '../../../components';
 
 export const LoginForm: React.FC = () => {
   const [emailOrPhone, setEmailOrPhone] = useState('');
@@ -21,26 +22,22 @@ export const LoginForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email or Phone:</label>
-        <input
-          type="text"
+    <Form onSubmit={handleSubmit}>
+      <Flex direction='column' gap={16} alignItems='stretch'>
+        <Input label='Email or Phone'
+          type='text'
           value={emailOrPhone}
           onChange={(e) => setEmailOrPhone(e.target.value)}
         />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
+        <Input label='Password'
+          type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
-      {error && <p>{error}</p>}
-      <button type="submit">Login</button>
-    </form>
+        {error && <Text size='small'>{error}</Text>}
+        <Button type="submit">Login</Button>
+      </Flex>
+    </Form>
   );
 };
 

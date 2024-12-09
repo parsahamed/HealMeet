@@ -1,0 +1,28 @@
+.btn {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: var(--error-color);
+    color: #fff;
+}
+
+.btn:hover {
+    filter: brightness(0.9);
+}
