@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from '../button';
+import { MoonIcon, SunIcon } from '../../icons';
+import './themeToggle.css'
 
 export const ThemeToggle: React.FC = () => {
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -11,9 +12,9 @@ export const ThemeToggle: React.FC = () => {
     };
 
     return (
-        <Button kind='secondary' onClick={toggleTheme}>
-            Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
-        </Button>
+        <div onClick={toggleTheme} className={`toggele toggele-${theme}`}>
+            {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+        </div>
     );
 };
 

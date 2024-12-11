@@ -1,0 +1,17 @@
+.toggele {
+  cursor: pointer;
+}
+
+.toggele-dark {
+  svg {
+    fill: #eee;
+    stroke: #eee;
+  }
+}
+
+.toggele-light {
+  svg {
+    fill: gray;
+    stroke: gray;
+  }
+}

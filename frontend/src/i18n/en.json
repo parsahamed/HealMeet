@@ -1,0 +1,9 @@
+{
+  "login": {
+    "title": "Login to HealMeet",
+    "emailOrPhone": "Email or Phone",
+    "password": "Password",
+    "button": "Login",
+    "invalid": "Invalid credentials"
+  }
+}

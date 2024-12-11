@@ -17,25 +17,25 @@ export const LoginForm: React.FC = () => {
       localStorage.setItem('access_token', accessToken);
       window.location.href = '/dashboard';
     } catch (err) {
-      setError('Invalid credentials');
+      setError('login.invalid');
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Flex direction='column' gap={16} alignItems='stretch'>
-        <Input label='Email or Phone'
+        <Input label='login.emailOrPhone'
           type='text'
           value={emailOrPhone}
           onChange={(e) => setEmailOrPhone(e.target.value)}
         />
-        <Input label='Password'
+        <Input label='login.password'
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <Text size='small'>{error}</Text>}
-        <Button type="submit">Login</Button>
+        <Button type="submit">login.button</Button>
       </Flex>
     </Form>
   );

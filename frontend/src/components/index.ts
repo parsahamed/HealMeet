@@ -6,3 +6,4 @@ export * from './input';
 export * from './protectedRoute';
 export * from './text';
 export * from './theme-toggle';
+export * from './localization-toggle';
